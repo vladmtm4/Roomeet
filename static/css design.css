@@ -1,0 +1,180 @@
+*
+{
+    padding: 5px;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+:root
+{
+    --bej : #ffe9d4;
+    --bluish : #7eb1dc;
+    
+}
+
+.container
+{
+display: grid;
+grid-template-areas: 
+'header header header'
+'welcome_left welcome welcome_right'
+'vision vision vision';
+}
+
+.header {
+    grid-area: header;
+    background-color: var(--bluish);
+    height: 10vh;
+    animation-name: aquablink;
+    animation-duration: 1s;
+    animation-iteration-count: 0;
+    animation-timing-function: ease-in-out;
+    display: inline;
+}
+
+.nav_bar
+{
+    float:right;    
+}
+.nav_bar li 
+{
+    display: inline;
+    color: var(--bej);
+    float: left;
+}
+.nav_bar li a
+{
+    color: var(--bej);
+    text-decoration: none;
+    font-family: website_font;
+}
+.nav_bar li img
+{
+    display: inline;
+    width: 30px;
+    height: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+#site_name {
+    font-size: 50px;
+    color: var(--bej);
+    display: inline;
+    font-family: website_font;
+}
+
+#welcome {
+    grid-area: welcome;
+    background-color: var(--bej);
+    height: 40vh;
+    text-align: center;
+    display: inline;
+}
+
+#welcome_left
+{
+    height: 40vh;
+    grid-area: welcome_left;
+    background-color: var(--bej);
+
+}
+
+#welcome_right
+{
+    height: 40vh;
+    grid-area: welcome_right;
+    background-color: var(--bej);
+
+
+}
+
+#welcome_header
+{
+    font-size: 60px;
+    font-family: website_font;
+    display: inline;
+
+}
+#text_under_header
+{
+    font-family: website_font;
+    font-size: 30px;
+
+}
+
+#sign_up_button
+{
+    font-family: website_font;
+    background-color: var(--bluish);
+    width: 70px;
+}
+
+#log_in_button
+{
+    font-family: website_font;
+    background-color: var(--bluish);
+    width: 70px;
+
+}
+
+#logo
+{
+    display: inline;
+}
+
+#welcome_text
+{
+    display: inline;
+}
+
+#logo
+{
+    width: 400px;
+    height: 300px;
+    float:right ;
+    
+}
+
+#vision {
+    grid-area: vision;
+    background-color: var(--bluish);
+    height: 50vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+  
+    gap: 100px;
+    grid-auto-flow: column;
+
+}
+.column {
+    text-align: center;
+  }
+
+.vision_pic
+{
+    display: block;
+    height: 300px;
+    width: 300px;
+}
+@keyframes aquablink {
+
+    0% {background-color: aqua;}
+    50% {background-color: white;}
+    100% {background-color: aqua;}
+
+}
+
+@keyframes Sizeup {
+    0% {font-size: 20px;}
+    50% {font-size: 30px;}
+    100% {font-size: 20px;}
+}
+
+@font-face {
+    font-family: website_font;
+    src: url(./Oswald-VariableFont_wght.ttf);
+    }
+    
