@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/css design.css">
+    <script defer src="../static/JS roomeet.js"></script>
+
+</head>
+<body>
+    <div class="container_my_profile">
+        
+        <div class="header">
+            <p id = "site_name"> Roomeet</p>
+            <nav class="nav_bar">
+                <ul>
+                    <li><a class = "nav_link" href="./meet_roomate.html">Meet a roomate</a></li>
+                    <li><a class = "nav_link" href="./my_profile.html">My profile</a></li>
+                    <li><a class = "nav_link" href="./sign_up.html">Sign out</a></li>
+                    <li><img src="../img/account-icon.png" alt=""></li>
+                </ul>
+                <ul>
+                </ul>
+            </nav>
+        </div>
+
+        <div class = my_profile_page > 
+            <div id = my_profile_box ><h2 id="my_profile_text">My Profile</h2>
+            <form action="" method="">
+                <label for="Full_Name">Full Name</label><br>
+                <input type="text" required id="Full_Name" name="Full_Name"><br> 
+                <label for="email">Email</label><br>
+                <input type="email" required id="email" name="email"><br> 
+                <ul>
+                    <li><label for="gender">Gender</label><br>
+                        <select name="gender" id="gender">
+                            <option value="male">male</option>
+                            <option value="female">female</option>
+                            <option value="other">other</option>
+                        </select><br></li>
+                    <li><label for="ocupation">Ocupation</label><br> 
+                        <select name="ocupation" id="ocupation">
+                            <option value="student">student</option>
+                            <option value="soldier">soldier</option>
+                            <option value="working">working</option>
+                            <option value="other">other</option>
+                        </select><br></li>
+                    <li> <label for="pets">Pets</label><br> 
+                        <select name="pets" id="pets">
+                            <option value="pro">pro</option>
+                            <option value="againts">againts</option>
+                        </select><br></li>
+                    <li><label for="religion">Religious</label><br> 
+                        <select name="religion" id="religion">
+                            <option value="yes">yes</option>
+                            <option value="no">no</option>
+                        </select><br></li>    
+                    <li><label for="kitchen">Kitchen preference</label><br> 
+                        <select name="kitchen" id="kitchen">
+                            <option value="vegan">vegan</option>
+                            <option value="vegeterian">vegeterian</option>
+                            <option value="kosher">kosher</option>
+                            <option value="nothing">nothing</option>
+                        </select><br></li>    
+                </ul>
+                <label for="phone">Phone</label><br>
+                <input type="text" required id="phone" name="phone"><br><br> 
+                <label for="comment">About me</label><br>
+                <textarea name="comment" id="comment" cols="30" rows="10"></textarea><br><br>
+                <input type="submit" id="submit"><br>     
+            </form>
+        </div>
+
+    </div>
+</body>
+</html>

@@ -3,6 +3,12 @@
     padding: 5px;
     font-size: 20px;
     border-radius: 5px;
+    max-width: 100%;
+    height: auto;
+}
+
+.active {
+    border: 5px solid  aquamarine;
 }
 
 :root
@@ -21,6 +27,7 @@ grid-template-areas:
 'vision vision vision';
 }
 
+
 .header {
     grid-area: header;
     background-color: var(--bluish);
@@ -30,6 +37,8 @@ grid-template-areas:
     animation-iteration-count: 0;
     animation-timing-function: ease-in-out;
     display: inline;
+    max-width: 100%;
+    height: auto;
 }
 
 .nav_bar
@@ -68,24 +77,30 @@ grid-template-areas:
 #welcome {
     grid-area: welcome;
     background-color: var(--bej);
-    height: 40vh;
+    height: 45vh;
     text-align: center;
     display: inline;
+    max-width: 100%;
+    height: auto;
 }
 
 #welcome_left
 {
-    height: 40vh;
+    height: 45vh;
     grid-area: welcome_left;
     background-color: var(--bej);
+    max-width: 100%;
+    height: auto;
 
 }
 
 #welcome_right
 {
-    height: 40vh;
+    height: 45vh;
     grid-area: welcome_right;
     background-color: var(--bej);
+    max-width: 100%;
+    height: auto;
 
 
 }
@@ -101,7 +116,7 @@ grid-template-areas:
 {
     font-family: website_font;
     font-size: 30px;
-
+    
 }
 
 #sign_up_button
@@ -109,6 +124,7 @@ grid-template-areas:
     font-family: website_font;
     background-color: var(--bluish);
     width: 70px;
+    animation: Sizeup 2s 2s 5  ease-in-out;
 }
 
 #log_in_button
@@ -147,6 +163,8 @@ grid-template-areas:
   
     gap: 100px;
     grid-auto-flow: column;
+    max-width: 100%;
+    height: auto;
 
 }
 .column {
@@ -158,7 +176,165 @@ grid-template-areas:
     display: block;
     height: 300px;
     width: 300px;
+    max-width: 100%;
+    height: auto;
 }
+
+
+
+
+
+
+
+.container_login
+{
+display: grid;
+grid-template-areas: 
+'header header header'
+'log_in_page log_in_page log_in_page';
+font-family: website_font;
+}
+
+.log_in_page
+{
+    grid-area: log_in_page;
+    height: 85vh;
+    background-color: var(--bej);
+    max-width: 100%;
+}
+
+#log_in_box
+{
+    border: 2px black solid;
+    text-align: center;
+    width: fit-content;
+    padding: 50px 0;
+    margin: auto;
+    max-width: 100%;
+    height: auto;
+    
+}
+
+#login_text
+{
+    font-size: larger;
+}
+
+
+
+
+
+
+
+
+
+.container_sign_up
+{
+display: grid;
+grid-template-areas: 
+'header header header'
+'sign_up_page sign_up_page sign_up_page';
+font-family: website_font;
+}
+
+.sign_up_page
+{
+    grid-area: sign_up_page;
+    background-color: var(--bej);
+    height: auto;
+    max-width: 100%;
+
+}
+
+#sign_up_box
+{
+    border: 2px black solid;
+    text-align: center;
+    width: fit-content;
+    padding: 50px 0;
+    margin: auto;
+    height: auto;
+
+}   
+
+
+
+
+#sign_up_text
+{
+    font-size: larger;
+}
+
+#sign_up_box li
+{
+    display: inline;
+    float: left;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.container_my_profile
+{
+display: grid;
+grid-template-areas: 
+'header header header'
+'my_profile_page my_profile_page my_profile_page';
+font-family: website_font;
+}
+
+.my_profile_page
+{
+    grid-area: my_profile_page;
+    background-color: var(--bej);
+    height: auto;
+    max-width: 100%;
+
+}
+
+#my_profile_box
+{
+    border: 2px black solid;
+    text-align: center;
+    width: fit-content;
+    padding: 50px 0;
+    margin: auto;
+    height: auto;
+
+}   
+
+
+
+
+#my_profile_text
+{
+    font-size: larger;
+}
+
+#my_profile_box li
+{
+    display: inline;
+    float: left;
+}
+
+
+
+
+
 @keyframes aquablink {
 
     0% {background-color: aqua;}
@@ -168,13 +344,12 @@ grid-template-areas:
 }
 
 @keyframes Sizeup {
-    0% {font-size: 20px;}
-    50% {font-size: 30px;}
-    100% {font-size: 20px;}
+    0% {font-size: 20px; width: 70px;}
+    50% {font-size: 30px; width: 100px;}
+    100% {font-size: 20px; width: 70px;}
 }
 
 @font-face {
     font-family: website_font;
     src: url(./Oswald-VariableFont_wght.ttf);
     }
-    
