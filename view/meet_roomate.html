@@ -1,12 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="../static/css design.css">
+        <script defer src="../static/JS roomeet.js"></script>
+    
+    </head>
+    <body onload="get_geo_location()">
+        <div class="container_meet">
+               <div class="header">
+                <p id = "site_name"> Roomeet</p>
+                <nav class="nav_bar">
+                    <ul>
+                        <li><a class = "nav_link" href="./meet_roomate.html">Meet a roomate</a></li>
+                        <li><a class = "nav_link" href="./my_profile.html">My profile</a></li>
+                        <li><a class = "nav_link" href="./home page.html">Sign out</a></li>
+                        <li><img src="../img/account-icon.png" alt=""></li>
+                    </ul>
+                    <ul>
+                    </ul>
+                </nav>
+            </div>
+            <div class="meet_page">
+                <div class="column">
+                    <div><img class="profile_pic" src="../img/account-icon.png" alt=""></div>
+                    <ul>
+                        <li> Full name </li>
+                        <li> Age </li><br>
+                        <li> <a href="">more info</a></li>
+                    </ul>
+                    <ul>
+                        <li ><img class="meet_button" src="../img/Checkmark-green-tick-isolated-on-transparent-background-PNG.png" alt=""></li>
+                        <li><img class="meet_button" src="../img/Dislike-icon-transparent-PNG.png" alt=""></li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <div><img class="profile_pic" src="../img/account-icon.png" alt=""></div>
+                </div>
+                <div class="column">
+                    <div><img class="profile_pic" src="../img/account-icon.png" alt=""></div>
+                </div>
+
+            </div>
+        </div>
     
 </body>
 </html>

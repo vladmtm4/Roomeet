@@ -25,7 +25,5 @@ const nav_links = document.querySelectorAll('.nav_link').forEach(link => {if(lin
     
 function showPosition (position)
 {
-    var x  = document.getElementById('p');
-    var y  = document.getElementById('BTN');
-    x.innerHTML = "you are in <br>" +position.coords.latitude + "<br>" +position.coords.longitude;
+    console.log("you are in <br>" +position.coords.latitude + "<br>" +position.coords.longitude);
 }

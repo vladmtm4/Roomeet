@@ -310,14 +310,12 @@ font-family: website_font;
 {
     border: 2px black solid;
     text-align: center;
-    width: fit-content;
+    width: auto;
     padding: 50px 0;
-    margin: auto;
-    height: auto;
+    margin: left;
+    height: 130vh;
 
 }   
-
-
 
 
 #my_profile_text
@@ -331,8 +329,75 @@ font-family: website_font;
     float: left;
 }
 
+#my_preference ul
+{ 
+  justify-content:space-between;
+  display: flex;
+}
+
+.profile_pic
+{
+    height: 300px;
+    width: 300px;
+    max-width: 100%;
+    height: auto;
+}
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.container_meet
+{
+display: grid;
+grid-template-areas: 
+'header header header'
+'meet_page meet_page meet_page';
+font-family: website_font;
+}
+
+.meet_page
+{
+    grid-area: meet_page;
+    background-color: var(--bej);
+    height: auto;
+    max-width: 100%;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+  
+    gap: 100px;
+    grid-auto-flow: column;
+    max-width: 100%;
+    height: auto;
+}
+
+.meet_page li
+{
+    display: inline;
+}
+
+.meet_button
+{
+    display: inline;
+    width: 30%;
+    height: 30%;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 
 @keyframes aquablink {
