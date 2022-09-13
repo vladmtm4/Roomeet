@@ -16,4 +16,4 @@ Web Project Vlad Tcherniavsky
 3. I have used 2 JS dynamic function 
     a. the active nav bar  ( you can see on what page you are on)
     b. Get geo location , will be used on meet roomate page but for now it just prints it into the console
-4. There are different types of forms , log in sign up my profile.    
+4. There are different types of forms , log in sign up my profile.   created a validation for password being to short a message will apear , verify that the user is 18 years old  , verify that both password are the same
