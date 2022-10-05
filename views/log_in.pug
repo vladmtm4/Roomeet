@@ -1,0 +1,37 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible', content='IE=edge')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  title Document
+  link(rel='stylesheet', href='css design.css')
+  script(defer='', src='JS roomeet.js')
+.container_login
+  .header
+    p#site_name  Roomeet
+    nav.nav_bar
+      ul
+        li
+          a.nav_link(href='http://localhost:3000/home_page') Home page
+        li
+          a.nav_link(href='http://localhost:3000/log_in') Log in
+        li
+          a.nav_link(href='http://localhost:3000/sign_up') Sign up
+        li
+          img(src='img/account-icon.png', alt='')
+      ul
+  .log_in_page
+    #log_in_box
+      h2#login_text Login
+      form(action='Check_login', method='post')
+        label(for='Email') Email
+        br
+        input#Email(type='email', required='', name='Email')
+        br
+        label(for='Password') Password
+        br
+        input#Password(type='password', name='Password')
+        br
+        br
+        input#submit(type='submit' , value = "log in")
+        br

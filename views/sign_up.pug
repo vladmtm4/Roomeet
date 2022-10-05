@@ -1,0 +1,99 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible', content='IE=edge')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  title Document
+  link(rel='stylesheet', href='css design.css')
+  script(defer='', src='JS roomeet.js')
+.container_sign_up
+  .header
+    p#site_name  Roomeet
+    nav.nav_bar
+      ul
+        li
+          a.nav_link(href='http://localhost:3000/home_page') Home page
+        li
+          a.nav_link(href='http://localhost:3000/log_in') Log in
+        li
+          a.nav_link(href='http://localhost:3000/sign_up') Sign up
+        li
+          img(src='img/account-icon.png', alt='')
+      ul
+  .sign_up_page
+    #sign_up_box
+      h2#sign_up_text Sign up
+      form(action='/newUser', method='post', onsubmit='return verify_form()')
+        label(for='Full_Name') Full Name
+        br
+        input#Full_Name(type='text', required='', name='Full_Name')
+        br
+        label(for='email') Email
+        br
+        input#email(type='email', required='', name='email')
+        br
+        label(for='Password') Password
+        br
+        input#Password(type='password', name='Password')
+        br
+        label(for='Repeat_Password') Repeat Password
+        br
+        input#Repeat_Password(type='password', name='Repeat_Password')
+        br
+        label(for='age') Age
+        br
+        input#age(type='number', required='', name='age')
+        br
+        ul
+          li
+            label(for='gender') Gender
+            br
+            select#gender(name='gender')
+              option(value='male') male
+              option(value='female') female
+              option(value='other') other
+            br
+          li
+            label(for='ocupation') Ocupation
+            br
+            select#ocupation(name='ocupation')
+              option(value='student') student
+              option(value='soldier') soldier
+              option(value='working') working
+              option(value='other') other
+            br
+          li
+            label(for='pets') Pets
+            br
+            select#pets(name='pets')
+              option(value='pro') pro
+              option(value='againts') againts
+            br
+          li
+            label(for='religion') Religious
+            br
+            select#religion(name='religion')
+              option(value='yes') yes
+              option(value='no') no
+            br
+          li
+            label(for='kitchen') Kitchen preference
+            br
+            select#kitchen(name='kitchen')
+              option(value='vegan') vegan
+              option(value='vegeterian') vegeterian
+              option(value='kosher') kosher
+              option(value='nothing') nothing
+            br
+        label(for='phone') Phone
+        br
+        input#phone(type='text', required='', name='phone')
+        br
+        br
+        label(for='comment') About me
+        br
+        textarea#comment(name='comment', cols='30', rows='10')
+        br
+        br
+        input#submit(type='submit')
+        br

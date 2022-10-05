@@ -1,0 +1,47 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible', content='IE=edge')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  title Document
+  link(rel='stylesheet', href='css design.css')
+  script(defer='', src='JS roomeet.js')
+.container
+  .header
+    p#site_name  Roomeet
+    nav.nav_bar
+      ul
+        li
+          a.nav_link(href='http://localhost:3000/home_page') Home page
+        li
+          a.nav_link(href='http://localhost:3000/log_in') Log in
+        li
+          a.nav_link(href='http://localhost:3000/sign_up') Sign up
+        li
+          img(src='img/account-icon.png', alt='')
+      ul
+  #welcome
+    #welcome_text
+      h1#welcome_header Welcome to Roomeet
+      p#text_under_header
+        | Ready to make the first step
+        br
+        |                                             and finding the best roomate?
+      p
+        button#sign_up_button(onclick="location.href='./sign_up.html'") Sign up
+      p
+        button#log_in_button(onclick="location.href='./log_in.html'") Log in
+  #welcome_left
+    img#logo(src='../img/image-removebg-preview.png', alt='')
+  #welcome_right
+  #vision
+    .column
+      div
+        img.vision_pic(src='../img/fun.jpeg', alt='')
+      p Have Fun together
+    .column
+      img.vision_pic(src='../img/learning.jpeg', alt='')
+      p  Learn together
+    .column
+      img#vision_middle.vision_pic(src='../img/playing.jpeg', alt='')
+      p  Play together
