@@ -1,6 +1,25 @@
 const sql = require('./db');
-const e =  require('express');
+const express =  require('express');
 const path = require("path");
+const app = express();
+var session;
+const cookieParser = require("cookie-parser");
+const sessions = require('express-session');
+let alert = require('alert'); 
+
+// creating 24 hours from milliseconds
+const oneDay = 1000 * 60 * 60 * 24;
+
+//session middleware
+app.use(sessions({
+    secret: "thisismysecrctekeyfhrgfgrfrty84fwir767",
+    saveUninitialized:true,
+    cookie: { maxAge: oneDay },
+    resave: false
+}));
+
+// cookie parser middleware
+app.use(cookieParser());
 
 const create_new_user = (req ,res) =>
 {
@@ -64,6 +83,8 @@ const Login = (req, res)=>{
             console.log(mysqlres);
             //res.redirect('/my_profile');
             console.log("You are logged in")
+            session=req.session;
+            console.log(req.session)
             res.render('my_profile', {
                 loged_in_user: mysqlres
             });
@@ -71,7 +92,10 @@ const Login = (req, res)=>{
        
         else 
         {
-            res.send('Incorrect Username and/or Password!');
+
+            alert('Incorrect Username and/or Password!!')
+            res.redirect('/log_in');
+
         }			
  
     })}; 

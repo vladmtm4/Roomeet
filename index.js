@@ -3,7 +3,6 @@ const path = require("path");
 const port = 3000;
 const bodyParser = require("body-parser");
 const CRUD_operations = require("./CRUD_functions");
-
 const app = express();
 
 app.use(express.static(path.join(__dirname,'static')));
@@ -13,6 +12,7 @@ app.set('view engine', 'pug');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true
 }));
+
 
 app.get('/',(req,res)=>
 {
