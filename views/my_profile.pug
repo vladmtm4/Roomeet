@@ -16,7 +16,7 @@ head
         li
           a.nav_link(href='http://localhost:3000/my_profile') My profile
         li
-          a.nav_link(href='http://localhost:3000/home_page') Sign out
+          a.nav_link(href='http://localhost:3000/log_in') Sign out
         li
           img(src='img/account-icon.png', alt='')
   .my_profile_page
@@ -25,7 +25,7 @@ head
       ul
         li
           img.profile_pic(src='../img/account-icon.png', alt='')
-          form#update_profile_form(action='', method='')
+          form#update_profile_form(action='/Update_user', method='post')
             label(for='Full_Name') Full Name
             br
             input#Full_Name(type='text', required='', name='Full_Name',value=loged_in_user[0].name)
@@ -34,6 +34,21 @@ head
             br
             input#email(type='email', required='', name='email' ,value=loged_in_user[0].email)
             br
+            label(for='phone') Phone
+            br
+            input#phone(type='text', required='', name='phone',value=loged_in_user[0].phone)
+            br
+            br
+            input#submit(type='submit', value='update')
+            br
+        li
+          label(for='comment') About me
+          br
+          textarea#comment(name='comment', cols='30', rows='5') #{value=loged_in_user[0].about}
+          br
+          br
+        li#my_preference
+          form#my_preference_form(action='/Update_user_preference', method='post')
             ul
               li
                 label(for='ocupation') Ocupation
@@ -70,100 +85,6 @@ head
                   option(value='vegeterian') vegeterian
                   option(value='kosher') kosher
                   option(value='nothing') nothing
-                br
-            label(for='phone') Phone
-            br
-            input#phone(type='text', required='', name='phone',value=loged_in_user[0].phone)
-            br
-            br
-            input#submit(type='submit', value='update')
-            br
-        li
-          label(for='comment') About me
-          br
-          textarea#comment(name='comment', cols='30', rows='5') #{value=loged_in_user[0].about}
-          br
-          br
-        li#my_preference
-          form#my_preference_form(action='', method='')
-            h2 My preference
-            br
-            ul
-              li
-                label(for='ocupation') Ocupation
-                br
-                select#ocupation(name='ocupation')
-                  option(value='student') student
-                  option(value='soldier') soldier
-                  option(value='working') working
-                  option(value='other') other
-                br
-              li
-                label(for='ocupation_rating') Rating
-                br
-                select#ocupation_rating(name='ocupation_rating')
-                  option(value='1') 1
-                  option(value='2') 2
-                  option(value='3') 3
-                  option(value='4') 4
-                  option(value='4') 5
-                br
-            ul
-              li
-                label(for='pets') Pets
-                br
-                select#pets(name='pets')
-                  option(value='pro') pro
-                  option(value='againts') againts
-                br
-              li
-                label(for='pets_rating') Rating
-                br
-                select#pets_rating(name='pets_rating')
-                  option(value='1') 1
-                  option(value='2') 2
-                  option(value='3') 3
-                  option(value='4') 4
-                  option(value='4') 5
-                br
-            ul
-              li
-                label(for='religion') Religious
-                br
-                select#religion(name='religion')
-                  option(value='yes') yes
-                  option(value='no') no
-                br
-              li
-                label(for='religion_rating') Rating
-                br
-                select#religion_rating(name='religion_rating')
-                  option(value='1') 1
-                  option(value='2') 2
-                  option(value='3') 3
-                  option(value='4') 4
-                  option(value='4') 5
-                br
-            ul
-              li
-                label(for='kitchen') Kitchen preference
-                br
-                select#kitchen(name='kitchen')
-                  option(value='vegan') vegan
-                  option(value='vegeterian') vegeterian
-                  option(value='kosher') kosher
-                  option(value='nothing') nothing
-                br
-              li
-                label(for='kitchen_rating') Rating
-                br
-                select#kitchen_rating(name='kitchen_rating')
-                  option(value='1') 1
-                  option(value='2') 2
-                  option(value='3') 3
-                  option(value='4') 4
-                  option(value='4') 5
-                br
-                br
+                br  
             input#submit(type='submit', value='update')
             br

@@ -4,19 +4,13 @@ const path = require("path");
 const app = express();
 var session;
 const cookieParser = require("cookie-parser");
-const sessions = require('express-session');
 let alert = require('alert'); 
 
 // creating 24 hours from milliseconds
 const oneDay = 1000 * 60 * 60 * 24;
 
 //session middleware
-app.use(sessions({
-    secret: "thisismysecrctekeyfhrgfgrfrty84fwir767",
-    saveUninitialized:true,
-    cookie: { maxAge: oneDay },
-    resave: false
-}));
+
 
 // cookie parser middleware
 app.use(cookieParser());
@@ -80,11 +74,9 @@ const Login = (req, res)=>{
         if (err) throw err;
         if (mysqlres.length > 0) 
         {
-            console.log(mysqlres);
             //res.redirect('/my_profile');
-            console.log("You are logged in")
-            session=req.session;
-            console.log(req.session)
+            console.log("You are logged in the user")
+            res.append('Set-Cookie', 'UserEmail='+LoginInfo.email+'; Path = /; HttpOnly');
             res.render('my_profile', {
                 loged_in_user: mysqlres
             });
@@ -100,4 +92,118 @@ const Login = (req, res)=>{
  
     })}; 
 
-module.exports = {create_new_user,Login};
+
+
+
+const get_user_data_session = (req,res) =>
+{
+    let email = GetUser(req,res);
+        sql.query("SELECT * FROM Users where email=? ",email, (err, mysqlres)=>
+        {
+            if(err)
+            {
+                console.log(err);
+            }
+            res.render('my_profile',{
+                loged_in_user:mysqlres
+        });
+    });    
+};
+
+
+function GetUser(req,res){
+    if (req.get("Cookie"))
+    {
+       var session = req.get("Cookie");
+       console.log("Session is +"+session)
+       var splitSession = session.split(/=|;/);
+       var email = splitSession[1];
+       return email;
+   }};
+
+
+
+
+const update_user = (req ,res) =>
+   {
+       if (!req.body) {
+           res.status(400).send({
+           message: "Content can not be empty!" + req.body
+           });
+           return;
+       }
+       const updated_data = 
+       {
+           "email": req.body.email,
+           "name" : req.body.Full_Name,
+           "phone":req.body.phone,
+       };
+       console.log(updated_data);
+       let logged_email = GetUser(req,res);
+       sql.query("UPDATE Users SET name=?,phone=? WHERE email=? ", 
+       [updated_data.name,updated_data.phone,logged_email], (err,mysqlres) => 
+       {
+           if (err) {
+               console.log ("err is " + err);
+               res.status(400).send({message: "error in creating User: " + err});
+               return;
+           }
+           console.log("User updated");
+       });
+       sql.query("SELECT * FROM Users where email=? ",updated_data.email, (err, mysqlres2)=>
+       {
+           if(err)
+           {
+               console.log(err);
+           }
+           console.log(mysqlres2);
+           res.render('my_profile',{
+               loged_in_user:mysqlres2
+       });
+    });  
+           
+   };
+
+const update_user_preference = (req ,res) =>
+   {
+       if (!req.body) {
+           res.status(400).send({
+           message: "Content can not be empty!" + req.body
+           });
+           return;
+       }
+       const updated_data = 
+       {
+           "email": req.body.email,
+           "ocupation":req.body.ocupation,
+           "pets" :req.body.pets,
+           "religion":req.body.religion,
+           "kitchen":req.body.kitchen,
+       };
+       console.log(updated_data);
+       let logged_email = GetUser(req,res);
+       sql.query("UPDATE Users SET ocupation=?,pets=?,religion=?,kitchen=? WHERE email=? ", 
+       [updated_data.ocupation,updated_data.pets,
+       updated_data.religion,updated_data.kitchen,logged_email], (err,mysqlres) => 
+       {
+           if (err) {
+               console.log ("err is " + err);
+               res.status(400).send({message: "error in creating User: " + err});
+               return;
+           }
+           console.log("User updated");
+       });
+       sql.query("SELECT * FROM Users where email=? ",logged_email, (err, mysqlres2)=>
+       {
+           if(err)
+           {
+               console.log(err);
+           }
+           console.log(mysqlres2);
+           res.render('my_profile',{
+               loged_in_user:mysqlres2
+       });
+    });  
+           
+   };   
+module.exports = {create_new_user,Login,get_user_data_session,update_user,update_user_preference};
