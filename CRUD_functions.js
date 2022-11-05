@@ -47,7 +47,7 @@ const create_new_user = (req ,res) =>
         }
         console.log("new User created successfully");
         console.log(newUser);
-        //res.sendFile(path.join(__dirname,"view/my_profile.html"));
+        res.append('Set-Cookie', 'UserEmail='+newUser[0].email+'; Path = /; HttpOnly');
         res.render('my_profile', {
             loged_in_user: newUser
         });        return;

@@ -5,6 +5,8 @@ const bodyParser = require("body-parser");
 const CRUD_operations = require("./CRUD_functions");
 const app = express();
 const sessions = require('express-session');
+const db_creation = require("./db_creation");
+
 
 app.use(express.static(path.join(__dirname,'static')));
 app.set('views',path.join(__dirname,'views'));
@@ -60,6 +62,11 @@ app.post('/newUser' ,CRUD_operations.create_new_user);
 app.post("/Check_login", CRUD_operations.Login);
 app.post("/Update_user", CRUD_operations.update_user);
 app.post("/Update_user_preference", CRUD_operations.update_user_preference);
+
+app.get('/CreateTable',db_creation.CreateUsersTable);
+app.get('/DropTable',db_creation.DropUsersTable);
+app.get('/InsertData',db_creation.InsertDataToUsers);
+app.get('/ShowTable',db_creation.ShowUsersTable);
 
 
 
