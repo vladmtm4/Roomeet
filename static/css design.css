@@ -183,6 +183,38 @@ grid-template-areas:
 
 
 
+.Meet_Roomate {
+    font-size: 0.9em;
+    width: auto;
+    max-height: 500px;
+    box-shadow: 0 0 30px black;
+    overflow: scroll;
+    display:inline-block;
+    position:relative;
+  }
+  
+.Meet_Roomate thead tr {
+    background-color: var(--bluish);
+    color: black;
+    text-align: left;
+    position: sticky;
+    top: 0;
+  }
+  
+.Meet_Roomate th,.Meet_Roomate td {
+      padding: 12px 15px;
+  }
+.Meet_Roomate tbody tr {
+    border-bottom: 1px solid var(--bej);
+  }
+  
+.Meet_Roomate tbody tr:nth-of-type(even) {
+    background-color: var(--bej);
+  }
+  
+.Meet_Roomate tbody tr:last-of-type {
+    border-bottom: 2px solid var(--bluish);
+  }
 
 
 
@@ -273,9 +305,17 @@ font-family: website_font;
 }
 
 
+#my_filters li
+{
+    display: inline;
+    float: left;
+}
 
-
-
+#my_filters ul
+{
+    display: inline;
+    float: left;
+}
 
 
 

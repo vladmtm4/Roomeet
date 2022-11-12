@@ -206,4 +206,49 @@ const update_user_preference = (req ,res) =>
     });  
            
    };   
-module.exports = {create_new_user,Login,get_user_data_session,update_user,update_user_preference};
+
+   const get_users_table = (req,res)=>{
+    var Query3 = "SELECT * FROM Users";
+    sql.query(Query3, (err, mySQLres)=>{
+        if (err) {
+            console.log("error in showing users table ", err);
+            res.send("error in showing users table ");
+            return;
+        }
+        console.log("showing users table");
+        res.render('meet_roomate',{
+            filtered_users:mySQLres
+        })
+        return;
+    })
+};
+
+
+const get_users_table_filtered = (req,res)=>{
+    const QueryFilter = {
+        "ocupation": req.body.ocupation,
+        "pets": req.body.pets,
+        "religion": req.body.religion,
+        "kitchen": req.body.kitchen,
+    };
+    if(!QueryFilter.ocupation&&!QueryFilter.kitchen&&!QueryFilter.pets&&!QueryFilter.religion)
+    {
+        var filtered_query = "SELECT * FROM Users";
+
+    }
+    filtered_query = "SELECT * FROM Users WHERE ocupation= IF(? IS NULL, ocupation, ?) and pets= IF(? IS NULL, pets, ?) and religion= IF(? IS NULL, religion, ?) and kitchen= IF(? IS NULL, kitchen, ?) "
+    sql.query(filtered_query,[QueryFilter.ocupation,QueryFilter.ocupation,QueryFilter.pets,QueryFilter.pets,QueryFilter.religion,QueryFilter.religion,QueryFilter.kitchen,QueryFilter.kitchen], (err, mySQLres)=>{
+        if (err) {
+            console.log("error in showing users table ", err);
+            res.send("error in showing users table ");
+            return;
+        }
+        console.log("showing users table");
+        res.render('meet_roomate',{
+            filtered_users:mySQLres
+        })
+        return;
+    })
+};
+
+module.exports = {create_new_user,Login,get_user_data_session,update_user,update_user_preference,get_users_table,get_users_table_filtered};

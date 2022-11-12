@@ -47,11 +47,9 @@ app.get('/sign_up',(req,res)=>
 
 app.get('/my_profile',CRUD_operations.get_user_data_session);
 
-app.get('/meet_roomate',(req,res)=>
-{
-    //res.sendFile(path.join(__dirname,'view/sign_up.html'))
-    res.render('meet_roomate');
-});
+app.get('/meet_roomate',CRUD_operations.get_users_table);
+
+app.post('/filter_table',CRUD_operations.get_users_table_filtered);
 
 app.listen(port, ()=>
 {

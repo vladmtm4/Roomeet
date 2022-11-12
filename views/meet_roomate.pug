@@ -7,6 +7,9 @@ head
   link(rel='stylesheet', href='css design.css')
   script(defer='', src='JS roomeet.js')
 .container_meet
+
+  
+            
   .header
     p#site_name  Roomeet
     nav.nav_bar
@@ -21,45 +24,65 @@ head
           img(src='../img/account-icon.png' alt='')
       ul
   .meet_page
-    .column
-      div
-        img.profile_pic(src='../img/account-icon.png' alt='')
-      ul
-        li  Full name 
-        li  Age 
-        br
-        li
-          a(href='') more info
-      ul
-        li
-          img.meet_button(src='../img/Checkmark-green-tick-isolated-on-transparent-background-PNG.png' alt='')
-        li
-          img.meet_button(src='../img/Dislike-icon-transparent-PNG.png' alt='')
-    .column
-      div
-        img.profile_pic(src='../img/account-icon.png' alt='')
-      ul
-        li  Full name 
-        li  Age 
-        br
-        li
-          a(href='') more info
-      ul
-        li
-          img.meet_button(src='../img/Checkmark-green-tick-isolated-on-transparent-background-PNG.png' alt='')
-        li
-          img.meet_button(src='../img/Dislike-icon-transparent-PNG.png' alt='')
-    .column
-      div
-        img.profile_pic(src='../img/account-icon.png' alt='')
-      ul
-        li  Full name 
-        li  Age 
-        br
-        li
-          a(href='') more info
-      ul
-        li
-          img.meet_button(src='../img/Checkmark-green-tick-isolated-on-transparent-background-PNG.png' alt='')
-        li
-          img.meet_button(src='../img/Dislike-icon-transparent-PNG.png' alt='')
+    form#my_filters(action='/filter_table', method='post')
+            ul
+              li
+                label(for='ocupation') Ocupation
+                br
+                select#ocupation(name='ocupation')
+                  option(value='none', selected='', disabled='', hidden='')
+                  option(value='student') student
+                  option(value='soldier') soldier
+                  option(value='working') working
+                  option(value='other') other
+              li
+                label(for='pets') Pets
+                br
+                select#pets(name='pets')
+                  option(value='none', selected='', disabled='', hidden='')
+                  option(value='pro') pro
+                  option(value='againts') againts
+              li
+                label(for='religion') Religious
+                br
+                select#religion(name='religion')
+                  option(value='none', selected='', disabled='', hidden='')
+                  option(value='yes') yes
+                  option(value='no') no
+              li
+                label(for='kitchen') Kitchen preference
+                br
+                select#kitchen(name='kitchen')
+                  option(value='none', selected='', disabled='', hidden='')
+                  option(value='vegan') vegan
+                  option(value='vegeterian') vegeterian
+                  option(value='kosher') kosher
+                  option(value='nothing') nothing
+                br  
+            input#submit(type='submit', value='update')
+            br
+    #Table
+        table.Meet_Roomate
+          thead
+            tr
+              th name
+              th age
+              th gender
+              th ocupation
+              th pets
+              th religion
+              th kitchen
+              th phone
+              th about
+          tbody
+            each n in filtered_users 
+              tr
+              td=n.name 
+              td=n.age
+              td=n.gender 
+              td=n.ocupation
+              td=n.pets 
+              td=n.religion
+              td=n.kitchen 
+              td=n.phone
+              td=n.about
